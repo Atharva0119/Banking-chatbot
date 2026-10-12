@@ -62,26 +62,65 @@
     'lost-card': {
       title: 'If your card is lost or stolen',
       steps: [
-        'Use your bank’s official app or call its verified support number to block the card as soon as possible.',
-        'Review recent transactions using an official bank channel and report anything you do not recognize.',
-        'Follow the bank’s instructions to request a replacement card. Never share your PIN, OTP, CVV, or full card number.'
-      ]
+        'Freeze or block the card immediately using your bank’s official app, website, or verified support number. If you cannot sign in, call the number printed on another bank document or card.',
+        'Check recent transactions in an official bank channel. Report any transaction you do not recognize and ask the bank to secure the affected card.',
+        'Ask the bank how to request a replacement card and whether any linked digital payment settings need attention.',
+        'Keep the time you noticed the loss and the bank complaint reference for your own records.'
+      ],
+      note: 'Never share a PIN, OTP, CVV, password, or full card number with this chatbot or with someone who contacts you unexpectedly.'
     },
     'upi-issue': {
       title: 'If a UPI payment failed or is pending',
       steps: [
-        'Check the payment status in your bank or UPI app and note the transaction reference number.',
-        'If the status is pending, avoid repeating the same payment until you have checked its status again.',
-        'Follow the resolution time shown in the app. If it remains unresolved, contact the bank or payment provider through an official channel. Never share your UPI PIN or OTP.'
-      ]
+        'Open the transaction in your bank or UPI app and check its current status before trying again.',
+        'If the payment is pending or the account was debited, save the transaction reference, date, and amount for your own records.',
+        'Use the app’s “Help” or “Report issue” option for that transaction, if available. Contact your bank or payment provider through its official support channel if it remains unresolved.',
+        'Avoid repeating a payment until you have checked its status, to reduce the chance of paying twice.'
+      ],
+      note: 'Share transaction details only with your bank or UPI provider through an official channel. Never disclose your UPI PIN or OTP.',
+      sources: [{ label: 'NPCI UPI FAQs', url: 'https://www.npci.org.in/what-we-do/upi/faqs' }]
     },
     'suspected-scam': {
       title: 'If you suspect a banking scam',
       steps: [
-        'Stop the conversation. Do not click links or share an OTP, PIN, password, CVV, or card details.',
-        'Contact your bank through its official app, website, or verified phone number. If you shared information, tell the bank so it can advise you on securing access.',
-        'Keep the message or caller details and use the relevant official fraud-reporting channel in your area.'
-      ]
+        'Stop responding. Do not click links, install apps, scan payment QR codes, or follow instructions from the caller or message.',
+        'Contact your bank using its official app, website, or verified phone number. Tell the bank if you clicked a link or shared any information so it can help secure the affected service.',
+        'Save the message, phone number, or other evidence for your records. Report the incident through the appropriate official fraud-reporting channel in your area.',
+        'Ignore anyone asking for a fee to recover money or promising a guaranteed refund.'
+      ],
+      note: 'Never share an OTP, PIN, password, CVV, or screen-sharing / remote-access permissions.'
+    },
+    'unauthorized-transaction': {
+      title: 'If you see a transaction you did not make',
+      steps: [
+        'Contact your bank immediately through its official app, website, or verified phone number. Ask it to report the transaction and secure the affected card or digital banking access.',
+        'Use the bank’s official dispute or fraud-reporting process. Save the complaint or acknowledgement number.',
+        'Check recent account activity for any other transactions you do not recognize and report them through the same official channel.',
+        'Follow the bank’s instructions to reset access details using a trusted device, if the bank advises it.'
+      ],
+      note: 'Report it promptly. Do not post account or transaction details here; never share your OTP, PIN, or password.',
+      sources: [{ label: 'RBI guidance on unauthorised electronic transactions', url: 'https://www.rbi.org.in/commonman/English/scripts/Notification.aspx?Id=2623' }]
+    },
+    'atm-cash': {
+      title: 'If an ATM debited your account but gave no cash',
+      steps: [
+        'Check your bank app or transaction alert to confirm whether the account was debited. Do not repeat the withdrawal until you have checked.',
+        'Note the date, time, ATM location or ID, amount, and transaction reference. Keep the receipt if one was printed.',
+        'Report the failed withdrawal to the card-issuing bank through its official app, website, or verified support number. Follow the bank’s complaint process.',
+        'Keep the complaint reference and check the transaction status through the bank’s official channel.'
+      ],
+      note: 'RBI advises customers to lodge a complaint with the card-issuing bank for a failed ATM transaction. Keep transaction details private in this chatbot.',
+      sources: [{ label: 'RBI FAQ on failed ATM transactions', url: 'https://www.rbi.org.in/scripts/FS_FAQs.aspx?Id=75' }]
+    },
+    'lost-phone': {
+      title: 'If your phone with banking apps is lost',
+      steps: [
+        'Contact your mobile provider through an official channel to suspend the SIM, especially if it can receive banking alerts or verification messages.',
+        'Contact your bank through its official website, verified number, or branch. Ask how to temporarily secure mobile banking, UPI, and cards linked to the phone.',
+        'From a trusted device, review recent account activity with the bank and report anything you do not recognize.',
+        'Restore access only by following the bank’s official recovery steps. Update passwords from a trusted device if the bank recommends it.'
+      ],
+      note: 'Never tell anyone an OTP or PIN, and do not grant remote access to a device to “recover” your account.'
     }
   };
 
@@ -332,6 +371,29 @@
       list.append(item);
     });
     guidePanel.append(heading, list);
+    if (guide.note) {
+      const note = document.createElement('p');
+      note.className = 'guide-safety-note';
+      note.textContent = guide.note;
+      guidePanel.append(note);
+    }
+    if (guide.sources?.length) {
+      const sources = document.createElement('div');
+      sources.className = 'guide-sources';
+      const sourceLabel = document.createElement('span');
+      sourceLabel.textContent = 'Official guidance: ';
+      sources.append(sourceLabel);
+      guide.sources.forEach((source, index) => {
+        if (index) sources.append(document.createTextNode(' · '));
+        const link = document.createElement('a');
+        link.href = source.url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = source.label;
+        sources.append(link);
+      });
+      guidePanel.append(sources);
+    }
     guidePanel.hidden = false;
   }
 

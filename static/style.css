@@ -105,6 +105,7 @@ h1, h2, h3 { font-family: 'Manrope', 'DM Sans', sans-serif; }
 .guides-section { padding-block: 17px 30px; }
 .guide-heading { align-items: center; margin-bottom: 15px; }
 .guide-heading h2, .faq-heading h2 { margin: 8px 0 0; color: var(--navy); font-size: 24px; letter-spacing: -.8px; }
+.guide-intro { margin: 7px 0 0; color: #7d8ea3; font-size: 10px; line-height: 1.55; }
 .guide-note { color: #8493a6; font-size: 9px; text-align: right; }
 .guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; }
 .guide-card { display: grid; grid-template-columns: 38px 1fr auto; align-items: center; gap: 11px; min-height: 76px; padding: 13px 15px; border: 1px solid #e2eaf3; border-radius: 13px; color: var(--ink); background: white; cursor: pointer; text-align: left; transition: border-color .18s, box-shadow .18s, transform .18s; }
@@ -119,6 +120,9 @@ h1, h2, h3 { font-family: 'Manrope', 'DM Sans', sans-serif; }
 .guide-panel[hidden] { display: none; }
 .guide-panel h3 { margin: 0 0 9px; color: var(--navy); font-size: 13px; }
 .guide-panel ol { display: grid; gap: 7px; margin: 0; padding-left: 20px; font-size: 10px; line-height: 1.65; }
+.guide-safety-note { margin: 12px 0 0; padding: 10px 12px; border: 1px solid #e1ebf6; border-radius: 9px; color: #526780; background: rgba(255,255,255,.65); font-size: 9px; line-height: 1.6; }
+.guide-sources { margin-top: 10px; color: #71839b; font-size: 9px; line-height: 1.6; }
+.guide-sources a { color: #2f70b2; font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
 .faq-section { padding-block: 30px 55px; }
 .faq-heading { align-items: end; margin-bottom: 16px; }
 .faq-count { color: #8393a8; font-size: 10px; }
@@ -194,6 +198,9 @@ h1, h2, h3 { font-family: 'Manrope', 'DM Sans', sans-serif; }
 :root[data-theme="dark"] .chat-composer textarea, :root[data-theme="dark"] .faq-tools input { color: #e1ebf7; }
 :root[data-theme="dark"] .chat-composer textarea::placeholder, :root[data-theme="dark"] .faq-tools input::placeholder { color: #91a4bb; }
 :root[data-theme="dark"] .guide-panel { border-color: #344a63; color: #c1d1e4; background: #17283e; }
+:root[data-theme="dark"] .guide-intro, :root[data-theme="dark"] .guide-sources { color: #a6b7cc; }
+:root[data-theme="dark"] .guide-safety-note { border-color: #354b64; color: #c1d1e4; background: #1d314a; }
+:root[data-theme="dark"] .guide-sources a { color: #9bc9ff; }
 :root[data-theme="dark"] .faq-card-category, :root[data-theme="dark"] .faq-card-action { color: #91bde9; }
 :root[data-theme="dark"] .faq-card-question { color: #d9e8fb; }
 :root[data-theme="dark"] .step-card p, :root[data-theme="dark"] .centered-heading p { color: #a6b6ca; }

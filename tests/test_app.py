@@ -25,6 +25,10 @@ class ChatApiTests(unittest.TestCase):
         self.assertNotIn("ABOUT THE PROJECT", page)
         self.assertNotIn("Under the hood", page)
         self.assertIn("Browse common questions", page)
+        self.assertIn("Unrecognized transaction", page)
+        self.assertIn("ATM did not dispense cash", page)
+        self.assertIn("Lost phone with banking apps", page)
+        self.assertEqual(page.count('class="guide-card"'), 6)
         self.assertNotIn("Viva mode", page)
 
     def test_faq_endpoint_returns_categorized_questions(self):
