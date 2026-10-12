@@ -1,0 +1,16 @@
+# Python bytecode and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Locally generated model artifacts
+model/
+*.joblib
+*.pkl
+
+# Editor and OS files
+.DS_Store
+.vscode/
+.netlify/
+public/

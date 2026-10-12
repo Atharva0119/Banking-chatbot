@@ -1,0 +1,104 @@
+{
+  "intents": [
+    {
+      "tag": "block_card",
+      "patterns": ["How do I block my ATM card?", "My debit card is lost", "Please help me freeze my card", "Someone may have my bank card", "How can I disable a stolen card?"],
+      "responses": ["Contact your bank immediately using the phone number on its official website or mobile app to block the card. If you use the app, choose the card controls option. Never share your PIN, OTP, CVV, or full card number in chat."]
+    },
+    {
+      "tag": "failed_upi",
+      "patterns": ["My UPI payment failed but money was deducted", "UPI transaction says pending", "The shop did not get my UPI payment", "What should I do about a failed UPI transfer?", "UPI payment is stuck", "My transfer is not going through", "UPI shows failed and the amount was taken from my account"],
+      "responses": ["Check the transaction status in your bank or UPI app and keep the transaction reference number. Reversals can take time depending on the bank and payment network. If it is not resolved within the timeline shown in the app, raise a complaint with your bank through its official channel. Never share your UPI PIN or OTP."]
+    },
+    {
+      "tag": "open_account",
+      "patterns": ["How can I open a savings account?", "I want to open a bank account", "What do I need to start a savings account?", "How do I apply for a new account?", "Can I open an account online?"],
+      "responses": ["Visit your bank's official website, app, or branch to check account types, eligibility, documents, and application steps. Requirements vary by bank. Do not send identity documents or account details through this chatbot."]
+    },
+    {
+      "tag": "reset_netbanking_password",
+      "patterns": ["I forgot my net banking password", "How do I reset my online banking password?", "I cannot log in to internet banking", "Forgot my bank login password", "Help me recover net banking access"],
+      "responses": ["Use the password reset or forgot-password option on your bank's official website or app, or contact the bank using its official support channel. Do not share your password, OTP, or recovery answers here."]
+    },
+    {
+      "tag": "transfer_methods",
+      "patterns": ["What is the difference between NEFT RTGS and IMPS?", "Explain NEFT versus RTGS", "Which is the difference between IMPS and NEFT?", "How are bank transfer methods different?", "Compare RTGS and IMPS"],
+      "responses": ["NEFT, RTGS, and IMPS are electronic bank transfer systems. They differ in processing, availability, and transaction rules, which can change by bank and regulator. Check your bank's official information for current limits, timing, and charges before transferring."]
+    },
+    {
+      "tag": "unauthorized_transaction",
+      "patterns": ["How can I report an unauthorized transaction?", "There is a payment I did not make", "Someone used my bank account", "I see a suspicious debit", "Report unknown card activity"],
+      "responses": ["Contact your bank immediately through the official app, website, or phone number to report the transaction and secure affected cards or access. Save the transaction details and complaint reference. Never provide OTPs, PINs, passwords, CVVs, or full card details in chat."]
+    },
+    {
+      "tag": "check_balance",
+      "patterns": ["How do I check my account balance?", "Where can I see my bank balance?", "Can you tell me my balance?", "How to view balance in mobile banking?", "Check savings account funds"],
+      "responses": ["This academic chatbot cannot access account balances. Check using your bank's official app, website, ATM, or another service listed by your bank. Do not share login details here."]
+    },
+    {
+      "tag": "statement",
+      "patterns": ["How can I download a bank statement?", "I need my account statement", "Where do I find transaction history?", "Get a statement for my account", "How to view past transactions?"],
+      "responses": ["Use the statements or transaction history section in your bank's official app or website, or ask at a branch. The available date range and download options depend on your bank."]
+    },
+    {
+      "tag": "update_mobile_number",
+      "patterns": ["How do I update my mobile number with the bank?", "My phone number changed", "Change registered phone number", "Update my banking contact number", "How can I change the number linked to my account?"],
+      "responses": ["Follow your bank's official process, which may require identity verification through its app, website, ATM, or branch. Contact the bank directly if you no longer have access to the registered number."]
+    },
+    {
+      "tag": "cheque_book",
+      "patterns": ["How can I request a cheque book?", "I need a new checkbook", "Order a cheque book for my account", "Where can I apply for cheque leaves?", "My cheque book is finished"],
+      "responses": ["Check the service requests section in your bank's official app or website, or request a cheque book at a branch. Your bank can explain delivery options and any applicable fees."]
+    },
+    {
+      "tag": "minimum_balance",
+      "patterns": ["What is the minimum balance requirement?", "How much should I keep in my account?", "Will I be charged for low balance?", "Minimum balance for savings account", "Does my account need a minimum amount?"],
+      "responses": ["Minimum balance rules and possible charges depend on the account type and bank. Review the current schedule of charges and account terms on your bank's official website or ask a branch."]
+    },
+    {
+      "tag": "debit_card_pin",
+      "patterns": ["How do I set my debit card PIN?", "I need to change my ATM PIN", "Where can I generate a card PIN?", "Reset debit card PIN", "How can I make a new PIN for my bank card?"],
+      "responses": ["Set or change your PIN only through a method provided by your bank, such as its official app, ATM, or customer support process. Never tell your PIN or OTP to anyone, including this chatbot."]
+    },
+    {
+      "tag": "loan_eligibility",
+      "patterns": ["How can I check loan eligibility?", "Can I qualify for a personal loan?", "What affects whether I get a loan?", "Check my bank loan eligibility", "What documents are needed for a loan?"],
+      "responses": ["Eligibility, documents, rates, and approval depend on the lender and product. Use your bank's official eligibility information or speak with a bank representative. This chatbot cannot check or approve loans."]
+    },
+    {
+      "tag": "dispute_card_charge",
+      "patterns": ["How do I dispute a card charge?", "I was charged twice", "A card payment amount is wrong", "How can I challenge a debit card transaction?", "There is a duplicate transaction on my card"],
+      "responses": ["Contact your bank promptly through an official channel and provide the transaction date, amount, and reference when requested securely by the bank. Keep the complaint reference and follow the bank's dispute process."]
+    },
+    {
+      "tag": "change_address",
+      "patterns": ["How do I update my address in my bank account?", "I moved house and need to change my bank address", "Update my mailing address", "Change address linked to account", "How can I correct my bank address?"],
+      "responses": ["Ask your bank about its official address update process and accepted proof of address. This may be available through its app, website, or branch. Do not upload personal documents to this chatbot."]
+    },
+    {
+      "tag": "fixed_deposit",
+      "patterns": ["How do I open a fixed deposit?", "What is a bank term deposit?", "Can I start an FD online?", "Explain fixed deposits", "How can I invest in a fixed deposit with my bank?"],
+      "responses": ["A fixed or term deposit holds money for a chosen period under terms set by the bank. Rates, withdrawal rules, and tax treatment vary. Review current terms through your bank's official channels before deciding."]
+    },
+    {
+      "tag": "close_account",
+      "patterns": ["How can I close my bank account?", "I want to shut down my savings account", "What is the process to close an account?", "Close an old bank account", "Can I close my account online?"],
+      "responses": ["Contact your bank or check its official website for account closure steps, required forms, fees, and how to handle remaining funds or linked services. Make sure you understand any impact before submitting a request."]
+    },
+    {
+      "tag": "contact_support",
+      "patterns": ["How do I contact my bank?", "Give me the bank customer care number", "Where can I get official support?", "I need to speak to a bank representative", "How can I reach customer service?"],
+      "responses": ["Find support details in your bank's official app, website, statement, or card documents. Verify the channel before sharing information. Avoid phone numbers or links sent by unknown people."]
+    },
+    {
+      "tag": "greeting",
+      "patterns": ["Hello", "Hi there", "Good morning", "Hey", "Good evening"],
+      "responses": ["Hello! I can answer general banking support questions. Please do not share passwords, PINs, OTPs, CVVs, or full card details."]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Goodbye", "Bye", "Thanks, that's all", "See you later", "Thank you, bye"],
+      "responses": ["Take care. For account-specific or urgent help, use your bank's official support channels."]
+    }
+  ]
+}

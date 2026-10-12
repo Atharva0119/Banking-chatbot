@@ -1,0 +1,5 @@
+scikit-learn>=1.5
+nltk>=3.9
+joblib>=1.4
+Flask>=3.0
+gunicorn>=23.0
