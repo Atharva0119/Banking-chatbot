@@ -18,9 +18,14 @@
       <span>bank<span class="brand-light">assist</span></span>
     </a>
     <nav class="main-nav" aria-label="Main navigation">
+      <a href="#faqs">Browse FAQs</a>
       <a href="#how-it-works">How it works</a>
     </nav>
     <a class="header-cta" href="#chat">Try the assistant <span aria-hidden="true">↗</span></a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+      <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">☾</span>
+      <span class="theme-toggle-label" id="theme-toggle-label">Dark mode</span>
+    </button>
   </header>
 
   <main id="home">
@@ -48,6 +53,40 @@
         <div class="float-note note-bottom"><span class="float-icon green-icon">✓</span><span><b>Privacy first</b><small>No sensitive details needed</small></span></div>
         <div class="art-sparkle sparkle-one">✳</div><div class="art-sparkle sparkle-two">✦</div>
       </div>
+    </section>
+
+    <section class="guides-section page-shell" id="quick-guides" aria-labelledby="guides-title">
+      <div class="section-heading guide-heading">
+        <div><div class="eyebrow">NEED A QUICK NEXT STEP?</div><h2 id="guides-title">Guides for common urgent issues</h2></div>
+        <span class="guide-note">General information · Contact your bank for account-specific help</span>
+      </div>
+      <div class="guide-grid" id="guide-grid">
+        <button class="guide-card" type="button" data-guide="lost-card" aria-expanded="false">
+          <span class="guide-icon" aria-hidden="true">▣</span><span><strong>Lost or stolen card</strong><small>Steps to secure your card</small></span><span class="guide-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="guide-card" type="button" data-guide="upi-issue" aria-expanded="false">
+          <span class="guide-icon" aria-hidden="true">↗</span><span><strong>UPI payment issue</strong><small>Payment failed or pending</small></span><span class="guide-arrow" aria-hidden="true">↗</span>
+        </button>
+        <button class="guide-card" type="button" data-guide="suspected-scam" aria-expanded="false">
+          <span class="guide-icon guide-icon-alert" aria-hidden="true">!</span><span><strong>Suspected scam</strong><small>Protect your account access</small></span><span class="guide-arrow" aria-hidden="true">↗</span>
+        </button>
+      </div>
+      <div class="guide-panel" id="guide-panel" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="faq-section page-shell" id="faqs" aria-labelledby="faq-title">
+      <div class="section-heading faq-heading">
+        <div><div class="eyebrow">BANKING HELP CENTER</div><h2 id="faq-title">Browse common questions</h2></div>
+        <span class="faq-count" id="faq-count"></span>
+      </div>
+      <div class="faq-tools">
+        <label class="visually-hidden" for="faq-search">Search banking questions</label>
+        <input id="faq-search" type="search" placeholder="Search a topic or question..." autocomplete="off">
+        <div class="faq-categories" id="faq-categories" role="group" aria-label="Filter FAQs by category"></div>
+      </div>
+      <p class="faq-status" id="faq-status" role="status">Loading questions...</p>
+      <div class="faq-grid" id="faq-list"></div>
+      <button class="faq-more" id="faq-more" type="button" hidden>Show more questions</button>
     </section>
 
     <section class="chat-section page-shell" id="chat" aria-labelledby="chat-title">
@@ -98,6 +137,7 @@
             <button class="send-button" id="send-button" type="submit" aria-label="Send message"><span aria-hidden="true">↑</span></button>
           </form>
           <div class="composer-footnote"><span>Enter to send · Shift + Enter for a new line</span><span id="character-count">0 / 1000</span></div>
+          <p class="feedback-summary" id="feedback-summary" role="status" hidden></p>
         </section>
       </div>
       <p class="chat-disclaimer">For account-specific, urgent, or sensitive issues, contact your bank through its official app, website, or phone number.</p>

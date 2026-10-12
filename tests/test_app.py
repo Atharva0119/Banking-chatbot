@@ -20,8 +20,20 @@ class ChatApiTests(unittest.TestCase):
         self.assertIn("What can we help with?", page)
         self.assertIn("/static/style.css", page)
         self.assertIn("/static/script.js", page)
+        self.assertIn('id="theme-toggle"', page)
+        self.assertIn("Dark mode", page)
         self.assertNotIn("ABOUT THE PROJECT", page)
         self.assertNotIn("Under the hood", page)
+        self.assertIn("Browse common questions", page)
+        self.assertNotIn("Viva mode", page)
+
+    def test_faq_endpoint_returns_categorized_questions(self):
+        response = self.client.get("/api/faqs")
+        self.assertEqual(response.status_code, 200)
+        result = response.get_json()["faqs"]
+        self.assertEqual(len(result), 35)
+        self.assertTrue(all(item["category"] for item in result))
+        self.assertTrue(all(item["question"] and item["answer"] for item in result))
 
     def test_known_question_returns_knowledge_base_answer(self):
         response = self.client.post("/api/chat", json={"message": "How do I block my ATM card?"})

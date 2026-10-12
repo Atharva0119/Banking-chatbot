@@ -41,6 +41,21 @@ def load_knowledge_base(path: Path) -> dict[str, list[str]]:
     return {item["tag"]: item["responses"] for item in content["intents"]}
 
 
+def load_faqs(path: Path) -> list[dict[str, str]]:
+    """Create one browseable FAQ card for each intent in the dataset."""
+    content = json.loads(path.read_text(encoding="utf-8"))
+    return [
+        {
+            "tag": item["tag"],
+            "category": item.get("category", "Other"),
+            "question": item["patterns"][0],
+            "answer": item["responses"][0],
+        }
+        for item in content["intents"]
+        if item.get("patterns") and item.get("responses")
+    ]
+
+
 def load_or_train_model(model_path: Path, data_path: Path):
     """Load the generated model, or create it from the dataset if absent."""
     if model_path.exists():
@@ -76,6 +91,7 @@ def create_app(
     try:
         model = load_or_train_model(model_path, data_path)
         knowledge_base = load_knowledge_base(data_path)
+        faq_items = load_faqs(data_path)
     except Exception as exc:
         # Keep detail in the process log for local debugging; never return it to
         # the browser. This message does not contain the user's submitted text.
@@ -89,6 +105,10 @@ def create_app(
     @app.get("/api/health")
     def health():
         return jsonify({"status": "ok"})
+
+    @app.get("/api/faqs")
+    def faqs():
+        return jsonify({"faqs": faq_items})
 
     @app.post("/api/chat")
     def chat():
@@ -110,14 +130,13 @@ def create_app(
             return jsonify({"reply": FALLBACK_REPLY, "fallback": True}), 200
 
         answer = knowledge_base[tag][0]
-        return jsonify(
-            {
-                "reply": answer,
-                "intent": tag,
-                "confidence": round(float(result["confidence"]), 3),
-                "fallback": False,
-            }
-        )
+        response = {
+            "reply": answer,
+            "intent": tag,
+            "confidence": round(float(result["confidence"]), 3),
+            "fallback": False,
+        }
+        return jsonify(response)
 
     @app.errorhandler(413)
     def request_too_large(_error):

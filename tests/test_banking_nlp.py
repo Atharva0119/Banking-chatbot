@@ -13,8 +13,8 @@ class TextPreparationTests(unittest.TestCase):
 
     def test_dataset_has_multiple_examples_per_intent(self):
         questions, labels, responses = read_examples(DATA_PATH)
-        self.assertEqual(len(questions), 102)
-        self.assertEqual(len(set(labels)), 20)
+        self.assertEqual(len(set(labels)), 35)
+        self.assertTrue(all(labels.count(tag) >= 10 for tag in set(labels)))
         self.assertTrue(all(responses[tag] for tag in set(labels)))
 
 
