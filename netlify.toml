@@ -2,10 +2,8 @@
   command = "python3 scripts/build_netlify.py"
   publish = "public"
 
-# If Render assigns a different hostname, replace this with the URL shown in
-# the Render dashboard before deploying the Netlify site.
 [[redirects]]
   from = "/api/*"
-  to = "https://bankassist-api.onrender.com/api/:splat"
+  to = "https://banking-chatbot-be5i.onrender.com/api/:splat"
   status = 200
   force = true
